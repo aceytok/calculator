@@ -31,7 +31,8 @@ body {
     margin: auto;
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid grey;
+    border: 3px solid #333;
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.5)
 }
 
 .calculator-buttons {
@@ -54,23 +55,41 @@ body {
     padding: 15px 20px;
     border-radius: 3px;
     border: 1px solid black;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2);
+    flex-wrap: wrap;
+    text-align: right;
+    word-break: break-all;
 }
 
 .display-input {
     font-size: 40px;
     padding-bottom: 10px;
+    min-height: 40px;
 }
 
 .display-output {
     font-size: 60px;
+    min-height: 4rem;
 }
+
+.display-output span {
+    margin-right: 2px;
+}
+
+/* .calculator-display::-webkit-scrollbar {
+    height: 6px;
+}
+
+.calculator-display::-webkit-scrollbar-thumb {
+    background: #0f0;;
+} */
 
 button {
     font-size: 24px;
     font-family: 'Press Start 2P', monospace;
     width: 110px;
-    height: 90px;
+    height: 80px;
     border: none;
     border-radius: 5px;
     margin: 5px;
