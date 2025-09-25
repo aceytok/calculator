@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    font-family: 'VT323', monospace;
+    font: 2rem;
+    background: radial-gradient(circle, #e0e0e0, #555555);
+    height: 100vh;
+}
+
 .title {
     font-weight: bold;
     font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +21,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: lightcoral;
+    background: #222;
     width: 500px;
     max-width: 500px;
     margin: auto;
@@ -30,13 +38,14 @@
 }
 
 .calculator-display {
-    background-color: whitesmoke;
+    background: #000;
+    color: #0f2;
     display: flex;
     flex-direction: column;
     width: 450px;
     align-items: end;
     justify-content: space-evenly;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 3px;
     border: 1px solid black;
     margin-bottom: 20px;
@@ -60,6 +69,8 @@ button {
     border-radius: 3px;
     margin: 5px;
     cursor: pointer;
+    background: #444;
+    color: #fff;
 }
 
 .clear-button {
@@ -67,5 +78,5 @@ button {
 }
 
 button:hover {
-    background-color: lightgray;
+    background-color: grey;
 }
