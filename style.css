@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
+@font-face {
+    font-family: 'DS-Digital';
+    src: url(fonts/digital-7.ttf) format('truetype');
+}
 body {
     font-family: 'VT323', monospace;
     font: 2rem;
@@ -38,6 +42,8 @@ body {
 }
 
 .calculator-display {
+    font-family: 'DS-Digital', 'VT323', monospace;
+    letter-spacing: 2px;
     background: #000;
     color: #0f2;
     display: flex;
@@ -52,25 +58,27 @@ body {
 }
 
 .display-input {
-    font-size: 30px;
+    font-size: 40px;
     padding-bottom: 10px;
 }
 
 .display-output {
-    font-size: 48px;
+    font-size: 60px;
 }
 
 button {
     font-size: 24px;
-    font-weight: bold;
+    font-family: 'Press Start 2P', monospace;
     width: 110px;
     height: 90px;
-    border: 1px solid black;
-    border-radius: 3px;
+    border: none;
+    border-radius: 5px;
     margin: 5px;
     cursor: pointer;
-    background: #444;
+    background: #666;
     color: #fff;
+    box-shadow: 0 5px #333;
+    transition: all 0.2s ease;
 }
 
 .clear-button {
@@ -78,5 +86,11 @@ button {
 }
 
 button:hover {
-    background-color: grey;
+    background: #999;
+    color: #000;
+}
+
+button:active {
+    box-shadow: 0 1px #333;
+    transform: translateY(3px);
 }
