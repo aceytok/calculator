@@ -101,9 +101,12 @@ button {
 }
 
 .clear-button {
-    flex: 1 1 100%;
+    flex: 1 1 40%;
 }
 
+.delete-button {    
+    flex: 1 1 40%;
+}
 button:hover {
     background: #999;
     color: #000;

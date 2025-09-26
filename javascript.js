@@ -21,6 +21,7 @@ const divideButton = document.querySelector(".divide-button");
 const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
 const decimalButton = document.querySelector(".decimal-button");
+const deleteButton = document.querySelector(".delete-button");
 
 // Variables for display
 const displayBottom = document.querySelector(".display-bottom");
@@ -65,6 +66,7 @@ function operate() {
             result = divideNumbers(previousInput, currentInput);
             break;
     };
+    result = formatResult(result);
     displayTop.textContent = `${previousInput} ${operator} ${currentInput} =`;
     displayBottom.textContent = result;
     previousInput = result;
@@ -90,7 +92,7 @@ function setOperator(op) {
     previousInput = currentInput || previousInput;
     currentInput = "";
     displayTop.textContent = `${previousInput} ${operator}`;
-    displayBottom.textContent = "0";
+    // displayBottom.textContent = "0";
 };
 
 function clearDisplay() {
@@ -101,6 +103,40 @@ function clearDisplay() {
     displayTop.textContent = "";
 }
 
+// Function to format long decimal points and larger integers
+function formatResult(result) {
+    if (typeof result === "string") return result;
+
+    const str = result.toString();
+
+    if (str.length > 12) {
+        if (str.includes(".")) {
+            return parseFloat(result.toPrecision(12));
+        } else {
+            return result.toExponential(6);
+        }
+    };
+
+    return result;
+};
+
+// Function to delete numbers and operators
+function deleteNumber() {
+    let currentText = displayBottom.textContent;
+
+    if (currentText !== "0" && currentText !== "ERROR!") {
+        currentText = currentText.slice(0, -1);
+        currentInput = currentText;
+        if (currentText === "" || currentText === "-") {
+            currentInput = "";
+            displayBottom.textContent = "0";
+        } else {
+            displayBottom.textContent = currentText;
+        }
+    };
+};
+
+// Event listeners for calculator buttons
 oneButton.addEventListener("click", () => numberDisplay(1));
 twoButton.addEventListener("click", () => numberDisplay(2));
 threeButton.addEventListener("click", () => numberDisplay(3));
@@ -118,3 +154,4 @@ divideButton.addEventListener("click", () => setOperator("/"));
 equalsButton.addEventListener("click", () => operate());
 clearButton.addEventListener("click", () => clearDisplay());
 decimalButton.addEventListener("click", () => numberDisplay("."));
+deleteButton.addEventListener("click", () => deleteNumber());
