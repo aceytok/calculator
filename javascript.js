@@ -155,3 +155,33 @@ equalsButton.addEventListener("click", () => operate());
 clearButton.addEventListener("click", () => clearDisplay());
 decimalButton.addEventListener("click", () => numberDisplay("."));
 deleteButton.addEventListener("click", () => deleteNumber());
+
+// Keyboard support
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+
+    if (!isNaN(key) && key !== " ") {
+        numberDisplay(key);
+    }
+
+    if (key === ".") {
+        numberDisplay(".");
+    }
+
+    if (key === "+" || key === "-" || key === "*" || key === "/") {
+        setOperator(key);
+    }
+
+    if (key === "Enter" || key === "=") {
+        event.preventDefault();
+        operate();
+    }
+
+    if (key === "Backspace") {
+        deleteNumber();
+    }
+
+    if (key === "Escape" || key === "C" || key === "c") {
+        clearDisplay();
+    }
+});
